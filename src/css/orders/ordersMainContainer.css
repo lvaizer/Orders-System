@@ -1,0 +1,10 @@
+.orders__main-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.orders__main-container__content {
+    display: flex;
+    flex-grow: 1;
+}

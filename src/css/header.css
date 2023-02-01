@@ -1,0 +1,33 @@
+.header {
+    margin: 0;
+    background-color: hsl(200, 60%, 40%);
+}
+
+.header_navbar {
+}
+
+.header_navbar_list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 2rem;
+}
+
+.header_navbar_list-item {
+    transition: 200ms;
+}
+
+.header_navbar_list-item a {
+    padding: 0 1em;
+    color: white;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header_navbar_list-item:hover {
+    background-color: hsl(200, 60%, 30%);
+}
+

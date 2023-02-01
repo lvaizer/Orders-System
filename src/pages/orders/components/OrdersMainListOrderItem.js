@@ -1,0 +1,71 @@
+import {Link} from "react-router-dom";
+import {useState} from "react";
+
+export default function OrdersMainListOrderItem(props) {
+    const [data, setDate] = useState(props)
+
+    function onDateChanged(newData) {
+        setDate({...data, [newData.target.name]: newData.target.value});
+        //save
+    }
+
+    return (
+        <tbody>
+        <tr className="orders__main-list-booking-item">
+            <td>
+                {data.index}
+            </td>
+            <td>
+                {data.id}
+            </td>
+            <td>
+                <input className="orders__main-list-booking-item_input" type="text"
+                       name="firstName" onChange={onDateChanged}
+                       value={data.firstName}/>
+            </td>
+            <td>
+                <input className="orders__main-list-booking-item_input" type="text"
+                       name="lastName"
+                       value={data.lastName} onChange={onDateChanged}/>
+            </td>
+            <td>
+                <input className="orders__main-list-booking-item_input" type="tel"
+                       name="phone"
+                       value={data.phone} onChange={onDateChanged}/>
+                <Link target="_blank" to='#'
+                      onClick={(e) => {
+                          window.location.href = `tel:${data.phone}`
+                          e.preventDefault();
+                      }}>call</Link>
+            </td>
+            <td>
+                <input className="orders__main-list-booking-item_input" type="tel"
+                       name="email"
+                       value={data.email} onChange={onDateChanged}/>
+                <Link target="_blank" to='#'
+                      onClick={(e) => {
+                          window.open(`mailto:${data.email}`, '_blank')
+                          e.preventDefault();
+                      }}>Send email</Link>
+            </td>
+            <td>
+                <input className="orders__main-list-booking-item_input" type="number"
+                       name="price"
+                       value={data.price} onChange={onDateChanged}/>
+            </td>
+            <td>
+                <select className="orders__main-list-booking-item_input" name="status"
+                        value={data.status} onChange={onDateChanged}>
+                    <option value="pending">pending</option>
+                    <option value="approved">approved</option>
+                </select>
+            </td>
+            <td>
+                <input className="orders__main-list-booking-item_input" type="text"
+                       name="notes"
+                       value={data.notes} onChange={onDateChanged}/>
+            </td>
+        </tr>
+        </tbody>
+    )
+}

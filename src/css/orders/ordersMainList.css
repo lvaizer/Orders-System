@@ -1,0 +1,10 @@
+.orders__main-list_container {
+    width: 85%;
+    background-color: hsl(0, 0%, 95%);
+    padding: .5rem;
+}
+
+.orders__main-list_items_list {
+    overflow-x: auto;
+}
+

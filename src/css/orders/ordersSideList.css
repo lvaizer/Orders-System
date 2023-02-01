@@ -1,0 +1,10 @@
+.orders__side-list_container {
+    width: 15%;
+    background-color: hsl(0, 0%, 95%);
+    padding: .5rem;
+    border-right: 1px dashed black;
+}
+
+.orders__side-list_items_list {
+    overflow-x: auto;
+}

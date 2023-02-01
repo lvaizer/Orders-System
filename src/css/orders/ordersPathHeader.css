@@ -1,0 +1,20 @@
+.orders__list-header {
+    font-size: 1rem;
+    display: flex;
+    padding: 0.5rem;
+}
+
+.orders__list-header a {
+    background-color: hsl(200, 60%, 80%);
+    padding: .2em .75em;
+    border-radius: 100px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 .3em;
+    transition: 200ms;
+}
+
+.orders__list-header a:hover {
+    background-color: hsl(200, 60%, 70%);
+}

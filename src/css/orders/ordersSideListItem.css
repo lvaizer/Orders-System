@@ -1,0 +1,19 @@
+.orders__side-list-item {
+    margin-bottom: .2em;
+    border: 1px solid black;
+    border-radius: .1em;
+    background-color: hsl(0, 0%, 90%);
+    transition: 200ms;
+    font-size: 1rem;
+}
+
+.orders__side-list-item:hover, .orders__side-list-item:active, .orders__side-list-item:focus, .orders__side-list-item.current {
+    background-color: hsl(0, 0%, 80%);
+}
+
+.orders__side-list-item a {
+    padding: .3em;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
