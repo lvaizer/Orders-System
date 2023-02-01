@@ -42,7 +42,6 @@ export default function OrdersMainContainer() {
                 monthName={getMonthName(month)}
                 day={day}
                 dayName={getDayName(year, month, day)}
-                orderId={orderId}
             />
             <div className="orders__main-container__content">
                 <OrdersSideList
