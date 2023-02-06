@@ -20,13 +20,13 @@ export default function OrdersMainListOrderItem(props) {
             </td>
             <td>
                 <input className="orders__main-list-booking-item_input" type="text"
-                       name="firstName" onChange={onDateChanged}
-                       value={data.firstName}/>
+                       name="first_name" onChange={onDateChanged}
+                       value={data.first_name}/>
             </td>
             <td>
                 <input className="orders__main-list-booking-item_input" type="text"
-                       name="lastName"
-                       value={data.lastName} onChange={onDateChanged}/>
+                       name="last_name"
+                       value={data.last_name} onChange={onDateChanged}/>
             </td>
             <td>
                 <input className="orders__main-list-booking-item_input" type="tel"

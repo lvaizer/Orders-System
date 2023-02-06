@@ -1,8 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit';
-import booking from "./booking";
+import ordersReducer from './orders';
 
 export default configureStore({
     reducer: {
-        booking: booking
+        orders: ordersReducer
     }
 });

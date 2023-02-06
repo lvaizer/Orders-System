@@ -7,7 +7,7 @@
 .orders__list-header a {
     background-color: hsl(200, 60%, 80%);
     padding: .2em .75em;
-    border-radius: 100px;
+    border-radius: .3em;
     color: black;
     font-weight: bold;
     text-decoration: none;

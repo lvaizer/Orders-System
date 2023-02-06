@@ -20,7 +20,8 @@ export default function OrdersPathHeader(props) {
             {
                 isYear() ? getYearLink() :
                     isMonth() ? getMonthLink() :
-                        isDay() ? getDayLink() : ''
+                        isDay() ? getDayLink() :
+                            <Link to={'#'}>select year</Link>
             }
         </div>
     )
