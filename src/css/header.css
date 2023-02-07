@@ -1,6 +1,6 @@
 .header {
     margin: 0;
-    background-color: hsl(200, 60%, 40%);
+    background-color: var(--primary-color);
 }
 
 .header_navbar {
@@ -28,6 +28,6 @@
 }
 
 .header_navbar_list-item:hover {
-    background-color: hsl(200, 60%, 30%);
+    background-color: var(--primary-hover-color);
 }
 

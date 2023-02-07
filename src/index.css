@@ -1,7 +1,13 @@
 @import "css/app.css";
+
+:root {
+    --primary-color: hsl(200, 60%, 40%);
+    --primary-hover-color: hsl(200, 60%, 30%);
+}
+
 /*noinspection CssInvalidAtRule*/
 @import-normalize
-*,*::before,*::after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 

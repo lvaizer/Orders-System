@@ -1,6 +1,7 @@
 import OrdersMainListOrderItem from "./components/OrdersMainListOrderItem";
 import {v4 as uuidv4} from "uuid";
 import {useGetOrders} from "../../QueryFactory";
+import Loader from "../../components/loader/Loader";
 
 export default function OrdersMainOrdersList(props) {
 
@@ -13,7 +14,7 @@ export default function OrdersMainOrdersList(props) {
             <div className="orders__main-list_items_list">
                 {
                     error ? <div>error occurred, please try again later</div> :
-                        isLoading ? <div>loading...</div> :
+                        isLoading ? <Loader/> :
                             data && data.message && data.message.length > 0 ?
                                 <table>
                                     <thead>

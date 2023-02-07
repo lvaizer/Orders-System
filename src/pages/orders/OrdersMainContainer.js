@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import OrdersMainOrdersList from "./OrdersMainOrdersList";
 import OrdersMainDatesList from "./OrdersMainDatesList";
 import OrdersPathHeader from "./components/OrdersPathHeader";
+import Loader from "../../components/loader/Loader";
 
 const MONTHS = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -113,12 +114,11 @@ export default function OrdersMainContainer() {
         if (isDay()) return [];
         return null;
     }
-
     return (
         <div className="orders__main-container">
             {
                 error ? <div>error occurred, please try again later</div> :
-                    isLoading ? <div>loading...</div> :
+                    isLoading ? <Loader/> :
                         <>
                             <OrdersPathHeader
                                 year={year}

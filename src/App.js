@@ -15,7 +15,6 @@ export default function App() {
                         <Route path=":year" element={<></>}/>
                         <Route path=":year/:month" element={<></>}/>
                         <Route path=":year/:month/:day" element={<></>}/>
-                        <Route path=":year/:month/:day/:orderId" element={<></>}/>
                     </Route>
                     <Route path="*" element={<NotFound/>}/>
                 </Route>
