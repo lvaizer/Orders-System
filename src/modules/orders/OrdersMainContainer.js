@@ -74,9 +74,9 @@ export default function OrdersMainContainer() {
             if (Number(i_year) === Number(year)) {
                 for (const i_month in data.message[i_year]) {
                     if (Number(i_month) === Number(month)) {
-                        for (const i_day in data.message[i_year][i_month].days) {
+                        for (const i_day in data.message[i_year][i_month]['days']) {
                             TEMP_days.push({
-                                title: i_day + '/' + i_month + '/' + i_year + ' - ' + data.message[i_year][i_month].days[i_day].name,
+                                title: i_day + '/' + i_month + '/' + i_year + ' - ' + data.message[i_year][i_month]['days'][i_day].name,
                                 link: './' + i_year + '/' + i_month + '/' + i_day,
                                 isCurrent: isCurrent(i_day)
                             });
@@ -114,6 +114,7 @@ export default function OrdersMainContainer() {
         if (isDay()) return [];
         return null;
     }
+
     return (
         <div className="orders__main-container">
             {

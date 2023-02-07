@@ -1,4 +1,4 @@
-import OrdersSideListItem from "./components/OrdersSideListItem";
+import OrdersBasicListItem from "./components/OrdersBasicListItem";
 import {v4 as uuidv4} from 'uuid';
 
 export default function OrdersSideList(props) {
@@ -7,7 +7,7 @@ export default function OrdersSideList(props) {
             <div className="orders__side-list_items_list">
                 {props.data && props.data.length > 0 ?
                     props.data.map(item =>
-                        <OrdersSideListItem key={uuidv4()} {...item}/>
+                        <OrdersBasicListItem key={uuidv4()} {...item}/>
                     ) :
                     <span>No items</span>
                 }

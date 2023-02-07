@@ -2,12 +2,12 @@ import {Link} from "react-router-dom";
 import {useState} from "react";
 import {isMailValid, isPhoneValid} from "../../../utils";
 
-export default function OrdersMainListOrderItem(props) {
+export default function OrdersOrderItem(props) {
     const [data, setDate] = useState(props)
 
     function onDateChanged(newData) {
         setDate({...data, [newData.target.name]: newData.target.value});
-        //save
+        //TODO save
     }
 
     return (
@@ -22,12 +22,12 @@ export default function OrdersMainListOrderItem(props) {
             <td>
                 <input className="orders__main-list-booking-item_input" type="text"
                        name="first_name" onChange={onDateChanged}
-                       value={data.first_name}/>
+                       value={data['first_name']}/>
             </td>
             <td>
                 <input className="orders__main-list-booking-item_input" type="text"
                        name="last_name"
-                       value={data.last_name} onChange={onDateChanged}/>
+                       value={data['last_name']} onChange={onDateChanged}/>
             </td>
             <td>
                 <input className="orders__main-list-booking-item_input" type="tel"
@@ -59,7 +59,7 @@ export default function OrdersMainListOrderItem(props) {
             <td>
                 <input className="orders__main-list-booking-item_input" type="number"
                        name="price"
-                       value={data.price} onChange={onDateChanged}/>
+                       value={data['price']} onChange={onDateChanged}/>
             </td>
             <td>
                 <select className="orders__main-list-booking-item_input" name="status"
@@ -71,7 +71,7 @@ export default function OrdersMainListOrderItem(props) {
             <td>
                 <input className="orders__main-list-booking-item_input" type="text"
                        name="notes"
-                       value={data.notes} onChange={onDateChanged}/>
+                       value={data['notes']} onChange={onDateChanged}/>
             </td>
         </tr>
         </tbody>

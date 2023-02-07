@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-export default function OrdersSideListItem(props) {
+export default function OrdersBasicListItem(props) {
 
     const current = props.isCurrent ? 'current' : '';
 

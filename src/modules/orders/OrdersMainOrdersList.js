@@ -1,4 +1,4 @@
-import OrdersMainListOrderItem from "./components/OrdersMainListOrderItem";
+import OrdersOrderItem from "./components/OrdersOrderItem";
 import {v4 as uuidv4} from "uuid";
 import {useGetOrders} from "../../QueryFactory";
 import Loader from "../../components/loader/Loader";
@@ -31,7 +31,7 @@ export default function OrdersMainOrdersList(props) {
                                     </tr>
                                     </thead>
                                     {data && data.message.map((item, index) =>
-                                        <OrdersMainListOrderItem
+                                        <OrdersOrderItem
                                             key={uuidv4()}
                                             index={index + 1}
                                             {...item}/>

@@ -1,4 +1,4 @@
-import OrdersSideListItem from "./components/OrdersSideListItem";
+import OrdersBasicListItem from "./components/OrdersBasicListItem";
 import {v4 as uuidv4} from "uuid";
 
 export default function OrdersMainDatesList(props) {
@@ -9,10 +9,9 @@ export default function OrdersMainDatesList(props) {
             <div className="orders__main-list_items_list">
                 {
                     data ? data.map(item =>
-                            <OrdersSideListItem
+                            <OrdersBasicListItem
                                 key={uuidv4()}
-                                {...item} />
-                        )
+                                {...item} />)
                         :
                         <span>Select item from the list to the left</span>
                 }
