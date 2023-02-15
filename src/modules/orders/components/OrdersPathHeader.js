@@ -1,7 +1,8 @@
 import {Link} from "react-router-dom";
+import OrdersNewOrderContainer from "./OrdersNewOrderContainer";
 
 export default function OrdersPathHeader(props) {
-    const {year, month, monthName, day, dayName} = props;
+    const {year, month, monthName, day, dayName, refresh} = props;
 
     const isDay = () => day;
     const isMonth = () => month && !day;
@@ -16,13 +17,17 @@ export default function OrdersPathHeader(props) {
             to={`./${year}/${month}/${day}`}>{day} - {dayName}</Link></>;
 
     return (
-        <div className="orders__list-header">
-            {
-                isYear() ? getYearLink() :
-                    isMonth() ? getMonthLink() :
-                        isDay() ? getDayLink() :
-                            <Link to={'#'}>select year</Link>
-            }
+        <div className="orders__path-container">
+            <div className="orders__path">
+                {
+                    isYear() ? getYearLink() :
+                        isMonth() ? getMonthLink() :
+                            isDay() ? getDayLink() :
+                                <Link to={'#'}>select year</Link>
+                }
+            </div>
+            <OrdersNewOrderContainer refresh={refresh}/>
+
         </div>
     )
 }

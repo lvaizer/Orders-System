@@ -1,13 +1,10 @@
 import OrdersOrderItem from "./components/OrdersOrderItem";
 import {v4 as uuidv4} from "uuid";
-import {useGetOrders} from "../../QueryFactory";
 import Loader from "../../components/loader/Loader";
 
 export default function OrdersMainOrdersList(props) {
 
-    const {year, month, day} = props;
-
-    const {data, isLoading, error} = useGetOrders(year, month, day)
+    const {refresh, orders, isLoading, error} = props;
 
     return (
         <section className="orders__main-list_container">
@@ -15,7 +12,7 @@ export default function OrdersMainOrdersList(props) {
                 {
                     error ? <div>error occurred, please try again later</div> :
                         isLoading ? <Loader/> :
-                            data && data.message && data.message.length > 0 ?
+                            orders && orders.message && orders.message.length > 0 ?
                                 <table>
                                     <thead>
                                     <tr className="orders__main-list-booking-item">
@@ -28,13 +25,15 @@ export default function OrdersMainOrdersList(props) {
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Notes</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
-                                    {data && data.message.map((item, index) =>
+                                    {orders.message.map((item, index) =>
                                         <OrdersOrderItem
+                                            refresh={refresh}
                                             key={uuidv4()}
                                             index={index + 1}
-                                            {...item}/>
+                                            item={item}/>
                                     )}
                                 </table>
                                 :

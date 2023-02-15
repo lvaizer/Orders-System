@@ -5,6 +5,7 @@
 }
 
 .orders__main-list_items_list {
+    max-height: 85vh;
     overflow-x: auto;
 }
 

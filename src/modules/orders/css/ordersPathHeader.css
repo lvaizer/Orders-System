@@ -1,10 +1,12 @@
-.orders__list-header {
+.orders__path-container {
     font-size: 1rem;
     display: flex;
     padding: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.orders__list-header a {
+.orders__path > a {
     background-color: hsl(200, 60%, 80%);
     padding: .2em .75em;
     border-radius: .3em;
@@ -15,6 +17,6 @@
     transition: 200ms;
 }
 
-.orders__list-header a:hover {
+.orders__path > a:hover {
     background-color: hsl(200, 60%, 70%);
 }

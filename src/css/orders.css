@@ -1,6 +1,7 @@
-@import "orders/ordersMainContainer.css";
-@import "orders/ordersMainListOrderItem.css";
-@import "orders/ordersSideListItem.css";
-@import "orders/ordersSideList.css";
-@import "orders/ordersMainList.css";
-@import "orders/ordersPathHeader.css";
+@import "../modules/orders/css/ordersMainContainer.css";
+@import "../modules/orders/css/ordersMainListOrderItem.css";
+@import "../modules/orders/css/ordersSideListItem.css";
+@import "../modules/orders/css/ordersSideList.css";
+@import "../modules/orders/css/ordersMainList.css";
+@import "../modules/orders/css/ordersPathHeader.css";
+@import "../modules/orders/css/ordersNewOrderBody.css";

@@ -3,6 +3,8 @@
 :root {
     --primary-color: hsl(200, 60%, 40%);
     --primary-hover-color: hsl(200, 60%, 30%);
+    --danger-color: hsl(0, 75%, 50%);
+    --danger-hover-color: hsl(0, 75%, 40%);
 }
 
 /*noinspection CssInvalidAtRule*/
@@ -22,3 +24,31 @@ body > div {
     display: flex;
     flex-direction: column;
 }
+
+.btn {
+    padding: .5em 1em;
+    font-size: inherit;
+    border-radius: .3em;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover, .btn-primary:focus{
+    background-color: var(--primary-hover-color);
+}
+
+.btn.btn-danger {
+    background-color: var(--danger-color);
+}
+
+.btn.btn-danger:hover,
+.btn.btn-danger:focus {
+    background-color: var(--danger-hover-color);
+}
+

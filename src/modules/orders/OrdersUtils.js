@@ -1,3 +1,5 @@
+import {isMailValid, isPhoneValid} from "../../utils";
+
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -64,4 +66,26 @@ export function getDayName(j_year, j_month, j_day) {
 export function getMonthName(j_month) {
     if (!j_month) return;
     return MONTHS[j_month - 1];
+}
+
+
+export function isOrderValid(order) {
+    return order.first_name && order.first_name.trim().length > 0 &&
+        order.last_name && order.last_name.trim().length > 0 &&
+        order.phone && isPhoneValid(order.phone) &&
+        order.email && isMailValid(order.email)
+}
+
+export function getOrderMissingParams(order) {
+    const errors = [];
+    if (!order.first_name || order.first_name.trim().length === 0) errors.push("first name")
+    if (!order.last_name || order.last_name.trim().length === 0) errors.push("last name")
+    if (!order.phone || !isPhoneValid(order.phone)) errors.push("phone number")
+    if (!order.email || !isMailValid(order.email)) errors.push("email address")
+    return JSON.stringify(errors)
+        .replace(/"/g, "")
+        .replace('[', '')
+        .replace(']', '')
+        .replace(/,/g, ", ")
+        .replace(/,([^,]*)$/, ' and $1');
 }

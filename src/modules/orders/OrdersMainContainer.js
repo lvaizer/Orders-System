@@ -1,7 +1,6 @@
 import OrdersSideList from "./OrdersSideList";
 import {useParams} from 'react-router-dom';
-import {useGetDates} from "../../QueryFactory";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import OrdersMainOrdersList from "./OrdersMainOrdersList";
 import OrdersMainDatesList from "./OrdersMainDatesList";
 import OrdersPathHeader from "./components/OrdersPathHeader";
@@ -13,37 +12,58 @@ import {
     getMonthsListFromServerResponse,
     getYearsListFromServerResponse
 } from "./OrdersUtils";
+import {useGetDates, useGetOrders} from "../../QueryFactory";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function OrdersMainContainer() {
 
     const {year, month, day} = useParams();
 
-    const isDay = () => day;
-    const isMonth = () => month && !day;
-    const isYear = () => year && !month;
-
-    const {data, error, isLoading} = useGetDates();
-
     const [years, setYears] = useState();
     const [months, setMonths] = useState();
     const [days, setDays] = useState();
 
+
+    const {
+        data: dates,
+        error: errorDates,
+        isLoading: isLoadingDates,
+        refetch: refetchDates
+    } = useGetDates();
+
+    const {
+        data: orders,
+        isLoading: isLoadingOrders,
+        error: errorOrders,
+        refetch: refetchOrders
+    } = useGetOrders(year, month, day)
+
+    const refresh = useCallback(() => {
+        refetchDates().then();
+        refetchOrders().then();
+    }, []);
+
+    const isDay = () => day;
+    const isMonth = () => month && !day;
+    const isYear = () => year && !month;
+
+    useEffect(() => {
+        if (dates && dates.status && dates.message) {
+            setYears(getYearsListFromServerResponse(dates, year));
+            setMonths(getMonthsListFromServerResponse(dates, year, month))
+            setDays(getDaysListFromServerResponse(dates, year, month, day));
+        }
+    }, [dates, year, month, day]);
+
+
     function getSideListElements() {
-        if (!data) return;
+        if (!dates) return;
         if (isYear()) return years;
         if (isMonth()) return months;
         if (isDay()) return days;
         return years;
     }
-
-    useEffect(() => {
-        if (data && data.message) {
-            setYears(getYearsListFromServerResponse(data, year));
-            setMonths(getMonthsListFromServerResponse(data, year, month));
-            setDays(getDaysListFromServerResponse(data, year, month, day));
-        }
-    }, [data, year, month, day]);
 
     function getMainListElements() {
         if (isYear()) return months;
@@ -52,28 +72,39 @@ export default function OrdersMainContainer() {
         return null;
     }
 
+
     return (
         <div className="orders__main-container">
-            {
-                error ? <div>error occurred, please try again later</div> :
-                    isLoading ? <Loader/> :
-                        <>
-                            <OrdersPathHeader
-                                year={year}
-                                month={month}
-                                monthName={getMonthName(month)}
-                                day={day}
-                                dayName={getDayName(year, month, day)}
-                            />
-                            <div className="orders__main-container__content">
-                                <OrdersSideList
-                                    data={getSideListElements()}/>
-                                {isDay() ?
-                                    <OrdersMainOrdersList year={year} month={month} day={day}/> :
-                                    <OrdersMainDatesList data={getMainListElements()}/>}
-                            </div>
-                        </>
+            {errorDates ?
+                <div>error occurred, please try again later</div>
+                : isLoadingDates ? <Loader/> :
+                    <>
+                        <OrdersPathHeader
+                            refresh={refresh}
+                            year={year}
+                            month={month}
+                            monthName={getMonthName(month)}
+                            day={day}
+                            dayName={getDayName(year, month, day)}
+                        />
+                        <div className="orders__main-container__content">
+                            <OrdersSideList
+                                data={getSideListElements()}/>
+                            {isDay() ?
+                                <OrdersMainOrdersList
+                                    refresh={refresh}
+                                    orders={orders}
+                                    isLoading={isLoadingOrders}
+                                    error={errorOrders}/>
+                                :
+                                <OrdersMainDatesList
+                                    data={getMainListElements()}
+                                />}
+                        </div>
+
+                    </>
             }
+
         </div>
     )
 }
