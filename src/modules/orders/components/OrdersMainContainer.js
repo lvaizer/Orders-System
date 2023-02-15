@@ -3,16 +3,16 @@ import {useParams} from 'react-router-dom';
 import {useCallback, useEffect, useState} from "react";
 import OrdersMainOrdersList from "./OrdersMainOrdersList";
 import OrdersMainDatesList from "./OrdersMainDatesList";
-import OrdersPathHeader from "./components/OrdersPathHeader";
-import Loader from "../../components/loader/Loader";
+import OrdersPathHeader from "./OrdersPathHeader";
+import Loader from "../../../components/loader/Loader";
 import {
     getDayName,
     getDaysListFromServerResponse,
     getMonthName,
     getMonthsListFromServerResponse,
     getYearsListFromServerResponse
-} from "./OrdersUtils";
-import {useGetDates, useGetOrders} from "../../QueryFactory";
+} from "../OrdersUtils";
+import {useGetDates, useGetOrders} from "../../../QueryFactory";
 import 'react-toastify/dist/ReactToastify.css';
 
 

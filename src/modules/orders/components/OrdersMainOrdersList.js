@@ -1,6 +1,6 @@
-import OrdersOrderItem from "./components/OrdersOrderItem";
+import OrdersOrderItem from "./OrdersOrderItem";
 import {v4 as uuidv4} from "uuid";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../../components/loader/Loader";
 
 export default function OrdersMainOrdersList(props) {
 

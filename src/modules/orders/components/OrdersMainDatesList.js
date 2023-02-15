@@ -1,4 +1,4 @@
-import OrdersBasicListItem from "./components/OrdersBasicListItem";
+import OrdersBasicListItem from "./OrdersBasicListItem";
 import {v4 as uuidv4} from "uuid";
 
 export default function OrdersMainDatesList(props) {
