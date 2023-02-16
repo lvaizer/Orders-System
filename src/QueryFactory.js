@@ -1,7 +1,7 @@
 import {useMutation, useQuery} from 'react-query';
 import axios from 'axios';
 
-const BASE_URL = window.location.hostname === "localhost" ? 'http://localhost:3002' : 'https://orders-server-3wp3.onrender.com'
+const BASE_URL = window.location.hostname === "localhost" ? 'http://localhost:3002' : 'https://orders-server-6lz7.onrender.com'
 
 /*
 * Orders queries
