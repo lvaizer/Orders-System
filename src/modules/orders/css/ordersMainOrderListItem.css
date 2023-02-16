@@ -1,0 +1,24 @@
+.orders_main_orders_list__row-item, .orders_main_orders_list__row-header-item {
+    font-size: 1rem;
+}
+
+.orders_main_orders_list__row-item{
+    height: 2rem;
+}
+
+.orders_main_orders_list__row-item td,.orders_main_orders_list__row-item td input{
+    height: inherit;
+    padding: 0 0.2em;
+}
+
+.orders_main_orders_list__item_input {
+    outline: none;
+    border: none;
+    font-size: inherit;
+    background-color: inherit;
+}
+
+.orders_main_orders_list__item_input[type=number] {
+    text-align: center;
+}
+

@@ -1,4 +1,4 @@
-import OrdersOrderItem from "./OrdersOrderItem";
+import OrdersMainOrderListItem from "./OrdersMainOrderListItem";
 import {v4 as uuidv4} from "uuid";
 import Loader from "../../../components/loader/Loader";
 
@@ -15,7 +15,7 @@ export default function OrdersMainOrdersList(props) {
                             orders && orders.message && orders.message.length > 0 ?
                                 <table>
                                     <thead>
-                                    <tr className="orders__main-list-booking-item">
+                                    <tr className="orders_main_orders_list__row-header-item">
                                         <th>#</th>
                                         <th>id</th>
                                         <th>First name</th>
@@ -28,13 +28,15 @@ export default function OrdersMainOrdersList(props) {
                                         <th></th>
                                     </tr>
                                     </thead>
+                                    <tbody>
                                     {orders.message.map((item, index) =>
-                                        <OrdersOrderItem
+                                        <OrdersMainOrderListItem
                                             refresh={refresh}
                                             key={uuidv4()}
                                             index={index + 1}
                                             item={item}/>
                                     )}
+                                    </tbody>
                                 </table>
                                 :
                                 <span>Select item from the list to the left</span>

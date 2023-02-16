@@ -5,6 +5,9 @@ import {createRef, useState} from "react";
 import {getOrderMissingParams, isOrderValid} from "../OrdersUtils";
 import {toast, ToastContainer} from "react-toastify";
 import {PostNewOrder} from "../../../QueryFactory";
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function OrdersNewOrderContainer(props) {
     const {refresh} = props;
@@ -65,8 +68,13 @@ export default function OrdersNewOrderContainer(props) {
 
     return (
         <div>
-            <button className="btn btn-primary" onClick={handleAddNewOrderButtonClick}>+ new order
-            </button>
+            <SpeedDial
+                ariaLabel="SpeedDial basic example"
+                sx={{position: 'absolute', bottom: 16, right: 16}}
+                icon={<SpeedDialIcon openIcon={<EditIcon/>}/>}
+                onClick={handleAddNewOrderButtonClick}
+            >
+            </SpeedDial>
             <Modal
                 showModal={isNewOrderModalOpen}
                 onCloseClick={hideNewOrderModal}

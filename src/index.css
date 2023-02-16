@@ -1,8 +1,8 @@
 @import "css/app.css";
 
 :root {
-    --primary-color: hsl(200, 60%, 40%);
-    --primary-hover-color: hsl(200, 60%, 30%);
+    --primary-color: hsl(210, 79%, 46%);
+    --primary-hover-color:hsl(210, 79%, 36%);
     --danger-color: hsl(0, 75%, 50%);
     --danger-hover-color: hsl(0, 75%, 40%);
 }

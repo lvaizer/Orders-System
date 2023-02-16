@@ -1,11 +1,23 @@
 .orders__main-list_container {
     width: 85%;
-    background-color: hsl(0, 0%, 95%);
     padding: .5rem;
 }
 
 .orders__main-list_items_list {
     max-height: 85vh;
     overflow-x: auto;
+}
+
+.orders__main-list_items_list td, .orders__main-list_items_list th {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.orders__main-list_items_list td:last-child, .orders__main-list_items_list th:last-child {
+    border-right: 1px solid #ddd;
+}
+
+.orders__main-list_items_list tr:last-child td {
+    border-bottom: 1px solid #ddd;
 }
 

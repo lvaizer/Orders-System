@@ -7,7 +7,7 @@ import Modal from "../../../components/modal/Modal";
 import {DeleteOrder, UpdateOrder} from "../../../QueryFactory";
 import debounce from 'lodash.debounce'
 
-export default function OrdersOrderItem(props) {
+export default function OrdersMainOrderListItem(props) {
 
     const [data, setDate] = useState(props.item);
     const [showDelete, setShowDelete] = useState();
@@ -48,8 +48,7 @@ export default function OrdersOrderItem(props) {
 
     return (
         <>
-            <tbody>
-            <tr className="orders__main-list-booking-item">
+            <tr className="orders_main_orders_list__row-item">
                 <td>
                     <Modal
                         showModal={showDelete}
@@ -68,17 +67,17 @@ export default function OrdersOrderItem(props) {
                     {data.id}
                 </td>
                 <td>
-                    <input className="orders__main-list-booking-item_input" type="text"
+                    <input className="orders_main_orders_list__item_input" type="text"
                            name="first_name" onChange={onDateChanged}
                            value={data['first_name']}/>
                 </td>
                 <td>
-                    <input className="orders__main-list-booking-item_input" type="text"
+                    <input className="orders_main_orders_list__item_input" type="text"
                            name="last_name"
                            value={data['last_name']} onChange={onDateChanged}/>
                 </td>
                 <td>
-                    <input className="orders__main-list-booking-item_input" type="tel"
+                    <input className="orders_main_orders_list__item_input" type="tel"
                            name="phone"
                            value={data.phone} onChange={onDateChanged}/>
                     {isPhoneValid(data.phone) ?
@@ -91,7 +90,7 @@ export default function OrdersOrderItem(props) {
 
                 </td>
                 <td>
-                    <input className="orders__main-list-booking-item_input" type="tel"
+                    <input className="orders_main_orders_list__item_input" type="tel"
                            name="email"
                            value={data.email} onChange={onDateChanged}/>
                     {isMailValid(data.email) ?
@@ -105,21 +104,22 @@ export default function OrdersOrderItem(props) {
 
                 </td>
                 <td>
-                    <input className="orders__main-list-booking-item_input" type="number"
+                    <input className="orders_main_orders_list__item_input" type="number"
                            name="price"
                            value={data['price']} onChange={onDateChanged}/>
                 </td>
                 <td>
-                    <select className="orders__main-list-booking-item_input" name="status"
+                    <select className="orders_main_orders_list__item_input" name="status"
                             value={data.status} onChange={onDateChanged}>
                         <option value="pending">pending</option>
                         <option value="approved">approved</option>
                     </select>
                 </td>
                 <td>
-                    <input className="orders__main-list-booking-item_input" type="text"
-                           name="notes"
-                           value={data['notes'] ? data['notes'] : ''} onChange={onDateChanged}/>
+                    <textarea className="orders_main_orders_list__item_input"
+                              name="notes"
+                              defaultValue={data['notes'] ? data['notes'] : ''}
+                              onChange={onDateChanged}/>
                 </td>
                 <td>
                     <IconButton
@@ -129,7 +129,6 @@ export default function OrdersOrderItem(props) {
                     </IconButton>
                 </td>
             </tr>
-            </tbody>
         </>
     )
 }

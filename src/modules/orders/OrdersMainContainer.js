@@ -1,19 +1,20 @@
-import OrdersSideList from "./OrdersSideList";
+import OrdersSideList from "./components/OrdersSideList";
 import {useParams} from 'react-router-dom';
 import {useCallback, useEffect, useState} from "react";
-import OrdersMainOrdersList from "./OrdersMainOrdersList";
-import OrdersMainDatesList from "./OrdersMainDatesList";
-import OrdersPathHeader from "./OrdersPathHeader";
-import Loader from "../../../components/loader/Loader";
+import OrdersMainOrdersList from "./components/OrdersMainOrdersList";
+import OrdersMainDatesList from "./components/OrdersMainDatesList";
+import OrdersPathHeader from "./components/OrdersPathHeader";
+import Loader from "../../components/loader/Loader";
 import {
     getDayName,
     getDaysListFromServerResponse,
     getMonthName,
     getMonthsListFromServerResponse,
     getYearsListFromServerResponse
-} from "../OrdersUtils";
-import {useGetDates, useGetOrders} from "../../../QueryFactory";
+} from "./OrdersUtils";
+import {useGetDates, useGetOrders} from "../../QueryFactory";
 import 'react-toastify/dist/ReactToastify.css';
+import OrdersNewOrderContainer from "./components/OrdersNewOrderContainer";
 
 
 export default function OrdersMainContainer() {
@@ -79,8 +80,8 @@ export default function OrdersMainContainer() {
                 <div>error occurred, please try again later</div>
                 : isLoadingDates ? <Loader/> :
                     <>
+                        <OrdersNewOrderContainer refresh={refresh}/>
                         <OrdersPathHeader
-                            refresh={refresh}
                             year={year}
                             month={month}
                             monthName={getMonthName(month)}

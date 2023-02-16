@@ -1,19 +1,16 @@
 .orders__side-list-item {
-    margin-bottom: .2em;
-    border: 1px solid black;
-    border-radius: .1em;
-    background-color: hsl(0, 0%, 90%);
+    list-style: none;
     transition: 200ms;
     font-size: 1rem;
 }
 
 .orders__side-list-item:hover, .orders__side-list-item:active, .orders__side-list-item:focus, .orders__side-list-item.current {
-    background-color: hsl(0, 0%, 80%);
+    background-color: hsl(0, 0%, 90%);
 }
 
 .orders__side-list-item a {
-    padding: .3em;
     display: block;
+    padding: 1em;
     text-decoration: none;
     color: black;
 }

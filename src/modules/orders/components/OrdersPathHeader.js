@@ -1,8 +1,8 @@
 import {Link} from "react-router-dom";
-import OrdersNewOrderContainer from "./OrdersNewOrderContainer";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 export default function OrdersPathHeader(props) {
-    const {year, month, monthName, day, dayName, refresh} = props;
+    const {year, month, monthName, day, dayName} = props;
 
     const isDay = () => day;
     const isMonth = () => month && !day;
@@ -11,9 +11,10 @@ export default function OrdersPathHeader(props) {
     const getYearLink = () =>
         <Link to={`./${year}`}>{year}</Link>;
     const getMonthLink = () =>
-        <>  {getYearLink()} &#8594; <Link to={`./${year}/${month}`}>{monthName}</Link></>;
+        <>  {getYearLink()} <NavigateNextIcon fontSize="small"/> <Link
+            to={`./${year}/${month}`}>{monthName}</Link></>;
     const getDayLink = () =>
-        <>{getMonthLink()} &#8594; <Link
+        <>{getMonthLink()} <NavigateNextIcon fontSize="small"/> <Link
             to={`./${year}/${month}/${day}`}>{day} - {dayName}</Link></>;
 
     return (
@@ -26,7 +27,7 @@ export default function OrdersPathHeader(props) {
                                 <Link to={'#'}>select year</Link>
                 }
             </div>
-            <OrdersNewOrderContainer refresh={refresh}/>
+
 
         </div>
     )

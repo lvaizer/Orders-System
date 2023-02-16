@@ -1,5 +1,5 @@
 import {Route} from "react-router-dom";
-import OrdersMainContainer from "./components/OrdersMainContainer";
+import OrdersMainContainer from "./OrdersMainContainer";
 
 export default [<Route key="orders_router" path="/orders" element={<OrdersMainContainer/>}>
     <Route path=":year" element={<></>}/>
