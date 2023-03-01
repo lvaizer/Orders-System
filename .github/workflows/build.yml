@@ -1,23 +1,21 @@
-name: Build & Deploy React
 on:
   push:
-    branches: [ main ]
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - id: build-publish
+        uses: bitovi/github-actions-react-to-ghp@v1.2.0
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install Packages
-        run: npm install
-      - name: Deploy to GH Pages
-        run: npm run deploy
-      - name: Updating Domain
-        run: echo "Update domain"
+          path: dist
