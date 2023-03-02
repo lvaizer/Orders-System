@@ -38,7 +38,7 @@ export default function OrdersMainContainer() {
         isLoading: isLoadingOrders,
         error: errorOrders,
         refetch: refetchOrders
-    } = useGetOrders(year, month, day)
+    } = useGetOrders(year, month, day);
 
     const refresh = useCallback(() => {
         refetchDates().then();
@@ -57,7 +57,6 @@ export default function OrdersMainContainer() {
         }
     }, [dates, year, month, day]);
 
-
     function getSideListElements() {
         if (!dates) return;
         if (isYear()) return years;
@@ -72,7 +71,6 @@ export default function OrdersMainContainer() {
         if (isDay()) return null;
         return null;
     }
-
 
     return (
         <div className="orders__main-container">
@@ -100,12 +98,11 @@ export default function OrdersMainContainer() {
                                 :
                                 <OrdersMainDatesList
                                     data={getMainListElements()}
-                                />}
+                                />
+                            }
                         </div>
-
                     </>
             }
-
         </div>
     )
 }
