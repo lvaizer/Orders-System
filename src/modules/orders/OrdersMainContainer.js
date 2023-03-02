@@ -43,7 +43,7 @@ export default function OrdersMainContainer() {
     const refresh = useCallback(() => {
         refetchDates().then();
         refetchOrders().then();
-    }, []);
+    }, [refetchDates, refetchOrders]);
 
     const isDay = () => day;
     const isMonth = () => month && !day;
