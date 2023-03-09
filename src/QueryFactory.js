@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // const BASE_URL = window.location.hostname === "localhost" ? 'http://localhost:3002' : 'https://orders.lironvaizer.com'
 
-const BASE_URL = 'https://orders.lironvaizer.com'
+const BASE_URL = 'https://orders-server.vercel.app'
 
 /*
 * Orders queries
