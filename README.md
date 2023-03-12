@@ -11,6 +11,9 @@ The API server is my server also available on my [GitHub](https://github.com/lva
 
 ## [Click to watch Orders-System live!!!](https://orders-system-eta.vercel.app/)
 
+###Environment variables:
+- REACT_APP_SERVER_URL - the API server URL for handling the API requests 
+
 #### Implemented:
 * React Hooks
 * Custom Hooks
