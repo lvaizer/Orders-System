@@ -9,13 +9,13 @@ export default function OrdersPathHeader(props) {
     const isYear = () => year && !month;
 
     const getYearLink = () =>
-        <Link to={`./${year}`}>{year}</Link>;
+        <Link to={`/orders/${year}`}>{year}</Link>;
     const getMonthLink = () =>
         <>  {getYearLink()} <NavigateNextIcon fontSize="small"/> <Link
-            to={`./${year}/${month}`}>{monthName}</Link></>;
+            to={`/orders/${year}/${month}`}>{monthName}</Link></>;
     const getDayLink = () =>
         <>{getMonthLink()} <NavigateNextIcon fontSize="small"/> <Link
-            to={`./${year}/${month}/${day}`}>{day} - {dayName}</Link></>;
+            to={`/orders/${year}/${month}/${day}`}>{day} - {dayName}</Link></>;
 
     return (
         <div className="orders__path-container">
