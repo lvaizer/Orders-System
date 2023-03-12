@@ -11,10 +11,10 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<MainLayout/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="/orders" element={<OrdersMainContainer/>}/>
-                    <Route path="/orders/:year" element={<OrdersMainContainer/>}/>
-                    <Route path="/orders/:year/:month" element={<OrdersMainContainer/>}/>
-                    <Route path="/orders/:year/:month/:day" element={<OrdersMainContainer/>}/>
+                    <Route path="orders" element={<OrdersMainContainer/>}/>
+                    <Route path="orders/:year" element={<OrdersMainContainer/>}/>
+                    <Route path="orders/:year/:month" element={<OrdersMainContainer/>}/>
+                    <Route path="orders/:year/:month/:day" element={<OrdersMainContainer/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Route>
             </Routes>
