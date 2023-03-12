@@ -9,7 +9,7 @@ export function getYearsListFromServerResponse(serverResponse, currentYear) {
     for (const i_year in serverResponse.message) {
         TEMP_years.push({
             title: i_year,
-            link: './' + i_year,
+            link: '/orders/' + i_year,
             isCurrent: Number(i_year) === Number(currentYear)
         })
     }
