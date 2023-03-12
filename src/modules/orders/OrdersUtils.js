@@ -24,7 +24,7 @@ export function getMonthsListFromServerResponse(serverResponse, currentYear, cur
             for (const i_month in data[i_year]) {
                 TEMP_months.push({
                     title: i_month + '/' + i_year + ' - ' + data[i_year][i_month].name,
-                    link: './' + i_year + '/' + i_month,
+                    link: '/orders/' + i_year + '/' + i_month,
                     isCurrent: Number(i_month) === Number(currentMonth)
                 });
             }
@@ -43,7 +43,7 @@ export function getDaysListFromServerResponse(serverResponse, currentYear, curre
                     for (const i_day in data[i_year][i_month]['days']) {
                         TEMP_days.push({
                             title: i_day + '/' + i_month + '/' + i_year + ' - ' + data[i_year][i_month]['days'][i_day].name,
-                            link: './' + i_year + '/' + i_month + '/' + i_day,
+                            link: '/orders/' + i_year + '/' + i_month + '/' + i_day,
                             isCurrent: Number(i_day) === Number(currentDay)
                         });
                     }
